@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="60">
+    <meta charset="utf-8">
     <title>Live Slides</title>
+    <!-- Reload page every 60 seconds -->
+    <meta http-equiv="refresh" content="60">
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    </style>
   </head>
   <body>
-    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRBx0ZgKFjoy0TvBlcdu2FPxOHHMso_VmnqLA_dpU1Xk82mFfdFNZatD0mXowBG7yngub7jAL_bSV4p/pub?start=true&loop=true&delayms=15000&slide=id.p"
-            frameborder="0"
-            width="960"
-            height="569"
+    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRBx0ZgKFjoy0TvBlcdu2FPxOHHMso_VmnqLA_dpU1Xk82mFfdFNZatD0mXowBG7yngub7jAL_bSV4p/pub?start=true&loop=true&delayms=15000"
             allowfullscreen></iframe>
   </body>
-
-
-<script>
-  setTimeout(() => {
-    location.reload();
-  }, 60000); // reload every 60 seconds
-</script>
-
 </html>
+
