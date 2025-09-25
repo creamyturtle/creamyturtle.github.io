@@ -3,8 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>Live Slides</title>
-    <!-- Reload page every 60 seconds -->
-    <meta http-equiv="refresh" content="300">
     <style>
       html, body {
         margin: 0;
@@ -19,15 +17,25 @@
     </style>
   </head>
   <body>
-    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRBx0ZgKFjoy0TvBlcdu2FPxOHHMso_VmnqLA_dpU1Xk82mFfdFNZatD0mXowBG7yngub7jAL_bSV4p/pubembed?start=true&loop=true&delayms=15000&rm=minimal" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-  
-<script>
-  setInterval(() => {
-    document.querySelector("iframe").src += "";
-  }, 5000); // reload iframe every 5 minutes
-</script>
-  
+    <iframe id="slides"
+      src="https://docs.google.com/presentation/d/e/2PACX-1vRBx0ZgKFjoy0TvBlcdu2FPxOHHMso_VmnqLA_dpU1Xk82mFfdFNZatD0mXowBG7yngub7jAL_bSV4p/pubembed?start=true&loop=true&delayms=15000&rm=minimal"
+      frameborder="0"
+      width="960"
+      height="569"
+      allowfullscreen="true"
+      mozallowfullscreen="true"
+      webkitallowfullscreen="true">
+    </iframe>
+
+    <script>
+      const frame = document.getElementById("slides");
+      const baseUrl = frame.src.split("?")[0];  // the Google Slides base URL
+      const query = frame.src.split("?")[1];    // keep your original query params
+
+      setInterval(() => {
+        // add a timestamp to force reload
+        frame.src = `${baseUrl}?${query}&t=${Date.now()}`;
+      }, 300000); // 5000 ms = 5 minutes
+    </script>
   </body>
 </html>
-
-
